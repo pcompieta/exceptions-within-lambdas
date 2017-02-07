@@ -2,6 +2,45 @@ package com.pcompieta.javautils;
 
 import java.util.function.*;
 
+/**
+ * A collection of wrapper methods to allow throw/catch of explicit exceptions
+ * within lambda expressions, whereas it would not normally be allowed.<p>
+ *
+ * As an example, the below code using a <tt>Consumer</tt> would not even compile:
+ * <pre>
+ *      void myLambdaExperiment() {
+ *          Stream.of("hello", null, "unreachable")
+ *              .forEach(s -> checkValue(s)); // <-- DOES NOT COMPILE
+ *      }
+ *
+ *      void checkValue(String value) throws MyTestException {
+ *          if(value==null) {
+ *              throw new MyTestException();
+ *          }
+ *      }
+ * </pre>
+ *
+ * Instead, using this class'
+ * {@link #rethrowConsumer(Consumer_WithExceptions)} wrapper
+ * method would both compile and ask the developer to declare the thrown exception
+ * in caller method. E.g.
+ * <pre>
+ *      void myLambdaExperiment() throws MyTestException { // <-- CORRECTLY RETHROWS
+ *          Stream.of("hello", null, "unreachable")
+ *              .forEach(rethrowConsumer(s -> checkValue(s))); <-- DOES COMPILE!
+ *      }
+ * </pre>
+ *
+ * @author Paolo Compieta
+ *
+ * @see Consumer
+ * @see BiConsumer
+ * @see Function
+ * @see BiFunction
+ * @see Supplier
+ * @see Predicate
+ * @see BiPredicate
+ */
 public final class LambdaExceptionUtil {
 
     @FunctionalInterface
