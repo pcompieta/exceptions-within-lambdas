@@ -27,7 +27,7 @@ import java.util.function.*;
  * <pre>
  *      void myLambdaExperiment() throws MyTestException { // <-- CORRECTLY RETHROWS
  *          Stream.of("hello", null, "unreachable")
- *              .forEach(rethrowConsumer(s -> checkValue(s))); <-- DOES COMPILE!
+ *              .forEach(rethrowConsumer(s -> checkValue(s))); // <-- DOES COMPILE!
  *      }
  * </pre>
  *
