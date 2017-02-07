@@ -8,7 +8,7 @@ As an example, the below code using a `Consumer` would not even compile:
 ```java
      void myLambdaExperiment() {
          Stream.of("hello", null, "unreachable")
-             .forEach(s -> checkValue(s)); // <-- DOES NOT COMPILE
+             .forEach(s -> checkValue(s)); // <-- WOULD NOT COMPILE
      }
 
      void checkValue(String value) throws MyTestException {
@@ -25,7 +25,7 @@ E.g.
 ```java
     void myLambdaExperiment() throws MyTestException { // <-- CORRECTLY RETHROWS
          Stream.of("hello", null, "unreachable")
-             .forEach(rethrowConsumer(s -> checkValue(s))); <-- DOES COMPILE!
+             .forEach(rethrowConsumer(s -> checkValue(s))); // <-- DOES COMPILE!
      }
 ```
 
