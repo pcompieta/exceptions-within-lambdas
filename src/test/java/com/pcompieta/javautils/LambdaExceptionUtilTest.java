@@ -14,6 +14,11 @@ import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+/**
+ * Test class and usage examples.
+ *
+ * @author Paolo Compieta
+ */
 public class LambdaExceptionUtilTest {
 
     @Test(expected = MyTestException.class)
