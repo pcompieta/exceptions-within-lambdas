@@ -1,12 +1,29 @@
-*.class
+#SVN
+.svn
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Eclipse
+.classpath
+.project
+.settings/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# Intellij
+.idea/
+*.iml
+*.iws
+*.ipr
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+#Node Grunt Bower
+node/
+coverage
+node_modules
+bower_components
+.grunt
+_SpecRunner.html
+target-grunt
